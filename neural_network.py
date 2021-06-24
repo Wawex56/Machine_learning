@@ -53,9 +53,16 @@ classifier.add(Dense(1, activation = 'sigmoid'))
 classifier.compile(optimizer = 'adam', loss= 'binary_crossentropy', metrics = ['accuracy'])
 classifier.fit(X_train,y_train, epochs=50)
 
+# evalute the model
+scores = classifier.evaluate(X_train,y_train)
+print("\n%s: %.2f%%" % (classifier.metrics_names[1],scores[1]*100))
+
 y_pred = classifier.predict(X_test)
 
 from sklearn.metrics import confusion_matrix
 y_pred = (y_pred > 0.5)
 cm = confusion_matrix(y_test,y_pred)
 print(cm)
+
+from ann_visualizer.visualize import ann_viz;
+ann_viz(classifier, title="My first neural network")
