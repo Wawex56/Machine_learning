@@ -5,7 +5,7 @@ Created on Fri Jun 11 00:16:28 2021
 
 @author: wawex
 """
-
+import numpy as np
 import pandas as pd
 
 dataset = pd.read_excel('Churn_Modelling.xlsx')
